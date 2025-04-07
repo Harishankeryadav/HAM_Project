@@ -1,0 +1,9 @@
+<nav class="navbar">
+    <div class="nav-left">
+      <a class="logo" routerLink="">Ham System</a>
+    </div>
+    <div class="nav-right">
+      <button *ngIf="user" class="btn-update" (click)="updateUser()">Update Profile</button>
+      <button *ngIf="user" class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </nav>

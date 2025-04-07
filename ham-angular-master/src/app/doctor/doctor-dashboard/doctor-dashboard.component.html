@@ -1,0 +1,36 @@
+<app-navbar />
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card profile-card">
+        <div class="card-body">
+          <h5 class="card-title">Profile</h5>
+          <app-profile [user]="user"></app-profile>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="doctor-features">
+        <h1>Doctor Dashboard</h1>
+        <button class="btn btn-primary" (click)="gotoAvailabiltyPage()">Add Availability</button>
+        <button class="btn btn-primary" (click)="gotoEditAvailabilityPage()">Edit Availability</button>
+        <button class="btn btn-primary" (click)="gotoConsultationPage()">Add Consultation</button>
+        <button class="btn btn-primary" (click)="gotoAppointmentspage()">Get Appointments</button>
+
+        <div *ngIf="appointments.length > 0">
+          <h2>Today's Appointments</h2>
+          <ul>
+            <li *ngFor="let appointment of appointments">
+              {{ appointment.timeSlot | date:'shortTime' }} - Patient ID: {{ appointment.patientID }}
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="appointments.length === 0">
+          <p>No appointments for today.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

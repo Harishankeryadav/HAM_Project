@@ -1,0 +1,125 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0056b3, #00aaff);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero {
+  padding: 73px 40px;
+  background: linear-gradient(135deg, #001f3f, #007bff);
+  color: black;
+  border-bottom-left-radius: 50% 20px;
+  border-bottom-right-radius: 50% 20px;
+}
+
+.header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 20px 0;
+  border-bottom: 3px solid #001f3f;
+  letter-spacing: 1.5px;
+}
+
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+.signup-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp 1s ease-out forwards;
+}
+
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.signup-card h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #003366;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+
+.form-control {
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  transition: border 0.3s ease;
+}
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+
+.btn-signup {
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  font-weight: 600;
+}
+.btn-signup:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 16px;
+}
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,25 @@
+
+.appointments-table {
+    margin-top: 20px;
+  }
+  
+  .appointments-table th, .appointments-table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .consultation-form, .consultation-details {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .consultation-form label, .consultation-details p {
+    font-weight: bold;
+  }
+  
+  .consultation-form input {
+    margin-bottom: 10px;
+  }

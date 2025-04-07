@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="text-center">Edit Availability</h2>
+
+  <div *ngIf="availabilityList.length > 0">
+    <h4>Available Slots</h4>
+    <ul class="list-group">
+      <li *ngFor="let availability of availabilityList" class="list-group-item">
+        <strong>{{ availability.date }}</strong>
+        <button class="btn btn-warning btn-sm ml-3" (click)="selectAvailability(availability)">Edit</button>
+        <button class="btn btn-danger btn-sm ml-2" (click)="deleteAvailability(availability.availabilityID)">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="availabilityList.length === 0">
+    <p>No availability slots found.</p>
+  </div>
+
+  <div *ngIf="selectedAvailability">
+    <h3>Edit Availability for {{ selectedAvailability.date }}</h3>
+    <div class="slots-container">
+      <button 
+        *ngFor="let slot of availableTimeSlots" 
+        class="slot-button" 
+        [class.selected]="selectedAvailability.timeSlots.includes(convertTo24HourFormat(slot))"
+        (click)="toggleTimeSlot(slot)">
+        {{ slot }}
+      </button>
+    </div>
+
+    <div class="form-group text-center">
+      <button class="btn btn-primary" (click)="updateAvailability()">
+        <span class="spinner-border spinner-border-sm" role="status" *ngIf="spinner" aria-hidden="true"></span>
+        Update Availability</button>
+      <button class="btn btn-secondary ml-2" (click)="selectedAvailability = null">Cancel</button>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-secondary mt-3" (click)="goBack()">Back</button>
+  </div>
+</div>

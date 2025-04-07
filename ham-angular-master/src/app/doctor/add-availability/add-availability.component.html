@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="text-center">Add Availability</h2>
+
+  <div class="form-group">
+    <label for="date">Select Date</label>
+    <input type="date" class="form-control" [(ngModel)]="availability.date" required [min]="minDate">
+  </div>
+
+  <div class="form-group">
+    <label>Select Available Time Slots</label>
+    <div class="slots-container">
+      <button 
+        *ngFor="let slot of availableTimeSlots" 
+        class="slot-button" 
+        [class.selected]="availability.timeSlots.includes(convertTo24HourFormat(slot))"
+        (click)="toggleTimeSlot(slot)">
+        {{ slot }}
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-primary" (click)="createAvailability()"> 
+      <span class="spinner-border spinner-border-sm" role="status" *ngIf="spinner" aria-hidden="true"></span> Add Availability
+    </button>
+    
+    <button class="btn btn-secondary ml-2" (click)="goBack()">Back</button>
+  </div>
+</div>

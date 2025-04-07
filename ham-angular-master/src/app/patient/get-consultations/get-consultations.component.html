@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="my-4">Appointments</h2>
+    <table class="table table-striped appointments-table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Appointment ID</th>
+          <th>Patient ID</th>
+          <th>Doctor ID</th>
+          <th> Date </th>
+          <th>Time Slot</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.appointmentID }}</td>
+          <td>{{ appointment.patientID }}</td>
+          <td>{{ appointment.doctorID }}</td>
+          <td>{{appointment.timeSlot | date}}</td>
+          <td>{{ appointment.timeSlot | date:"shortTime"}}</td>
+          <td>{{ appointment.status }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="viewConsultation(appointment)">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="showConsultationDetails" class="consultation-details">
+      <h3>Consultation Details</h3>
+      <p><strong>Appointment ID:</strong> {{ consultation.appointmentID }}</p>
+      <p><strong>Notes:</strong> {{ consultation.notes }}</p>
+      <p><strong>Prescription:</strong> {{ consultation.prescription }}</p>
+    </div>
+  </div>

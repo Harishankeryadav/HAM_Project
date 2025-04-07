@@ -1,0 +1,48 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.doctor-info, .patient-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #e3f2fd;
+  border-radius: 5px;
+}
+
+.dates-container, .time-slots-container {
+  margin: 20px 0;
+}
+
+button {
+  background-color: #e3f2fd;
+  border: 1px solid #1976d2;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #bbdefb;
+}
+
+.selected {
+  background-color: #1976d2;
+  color: white;
+}
+
+.btn-book {
+  background-color: #0377f3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-book:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}

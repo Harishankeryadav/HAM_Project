@@ -1,0 +1,12 @@
+.appointments-table {
+    margin-top: 20px;
+  }
+  
+  .appointments-table th, .appointments-table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .btn-danger {
+    margin-left: 5px;
+  }

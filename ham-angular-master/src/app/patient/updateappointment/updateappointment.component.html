@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Edit Appointment</h2>
+  
+    <div class="doctor-info">
+      <h3>Doctor ID: {{ appointment.doctorID }}</h3>
+      <p><strong>Current Time Slot:</strong> {{ appointment.timeSlot |date}} -- {{ appointment.timeSlot |date:"shortTime"}}</p>
+    </div>
+  
+    <div class="dates-container">
+      <button *ngFor="let availability of availabilities" 
+              (click)="selectDate(availability)" 
+              [class.selected]="availability.date === selectedDate">
+        {{ availability.date }}
+      </button>
+    </div>
+  
+    <div *ngIf="selectedDate" class="time-slots-container">
+      <h3>Available Time Slots for {{ selectedDate }}</h3>
+      <div class="time-slots">
+        <button *ngFor="let time of selectedTimeSlots" 
+                (click)="selectTime(time)" 
+                [class.selected]="time === selectedTime">
+          {{ time }}
+        </button>
+      </div>
+    </div>
+  
+    <button (click)="updateAppointment()" class="btn-update" 
+            [disabled]="!selectedTime">
+      Update Booking
+    </button>
+    <button class="btn btn-secondary ml-2" (click)="goBack()">Back</button>
+  </div>

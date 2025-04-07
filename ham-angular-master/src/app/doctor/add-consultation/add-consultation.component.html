@@ -1,0 +1,71 @@
+<div class="container">
+    <h2 class="my-4">Appointments</h2>
+    <table class="table table-striped appointments-table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Appointment ID</th>
+          <th>Patient ID</th>
+          <th>Doctor ID</th>
+          <th>Time Slot</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{ appointment.appointmentID }}</td>
+          <td>{{ appointment.patientID }}</td>
+          <td>{{ appointment.doctorID }}</td>
+          <td>{{ appointment.timeSlot }}</td>
+          <td>{{ appointment.status }}</td>
+          <td *ngIf="!(appointment.status=='Cancelled')">
+            <button class="btn btn-primary btn-sm " (click)="addConsultation(appointment)">Add</button>
+            <button class="btn btn-warning btn-sm ms-2" (click)="editConsultation(appointment)">Edit</button>
+            <button class="btn btn-info btn-sm ms-2" (click)="viewConsultation(appointment)">View</button>
+            <button class="btn btn-danger btn-sm ms-2" (click)="deleteConsultation(appointment.appointmentID!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="showConsultationForm" class="consultation-form">
+      <h3>Add Consultation</h3>
+      <form (ngSubmit)="submitConsultation()">
+        <div class="form-group">
+          <label for="notes">Notes:</label>
+          <input id="notes" class="form-control" [(ngModel)]="consultation.notes" name="notes" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="prescription">Prescription:</label>
+          <input id="prescription" class="form-control" [(ngModel)]="consultation.prescription" name="prescription" required>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  
+    <div *ngIf="showUpdateForm" class="consultation-form">
+      <h3>Update Consultation</h3>
+      <form (ngSubmit)="updateConsultation()">
+        <div class="form-group">
+          <label for="notes">Notes:</label>
+          <input id="notes" class="form-control" [(ngModel)]="consultation.notes" name="notes" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="prescription">Prescription:</label>
+          <input id="prescription" class="form-control" [(ngModel)]="consultation.prescription" name="prescription" required>
+        </div>
+        
+        <button type="submit" class="btn btn-warning">Update</button>
+      </form>
+    </div>
+  
+    <div *ngIf="showConsultationDetails" class="consultation-details">
+      <h3>Consultation Details</h3>
+      <p><strong>Appointment ID:</strong> {{ consultation.appointmentID }}</p>
+      <p><strong>Notes:</strong> {{ consultation.notes }}</p>
+      <p><strong>Prescription:</strong> {{ consultation.prescription }}</p>
+    </div>
+  </div>

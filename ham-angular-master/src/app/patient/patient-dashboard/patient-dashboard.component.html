@@ -1,0 +1,39 @@
+<app-navbar />
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card profile-card">
+        <div class="card-body">
+          <h5 class="card-title">Profile</h5>
+          <app-profile [user]="user"></app-profile>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="patient-features">
+        <h1>Patient Dashboard</h1>
+        
+        <div class="container">
+          <div class="dashboard-header">
+            <button class="btn-edit" (click)="goToEditAppointments()">Edit Appointments</button>
+            <button class="btn-edit" (click)="goToGetConsultations()">Get Consultations Details</button>
+          
+            <input
+              type="text"
+              class="form-control search-bar"
+              placeholder="Search doctors by name..."
+              [(ngModel)]="searchTerm"
+              (input)="filterDoctors()"
+            />
+          </div>
+
+          <h2>Available Doctors</h2>
+          <div class="doctor-list">
+            <app-doctor-card *ngFor="let doctor of filteredDoctors" [doctor]="doctor" [user]="user"></app-doctor-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

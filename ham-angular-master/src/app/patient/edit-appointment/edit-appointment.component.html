@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Edit Appointments</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th> Date </th>
+          <th>Time Slot</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>Doctor {{ appointment.doctorID }}</td>
+          <td>{{ appointment.timeSlot | date }}</td>
+          <td>{{ appointment.timeSlot | date:'shortTime'}}</td>
+          <td>
+            <button class="btn-edit" (click)="editAppointment(appointment)">Edit</button>
+            <button class="btn-cancel" (click)="cancelAppointment(appointment.appointmentID)">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-secondary ml-2" (click)="goBack()">Back</button>
+  </div>
+  
